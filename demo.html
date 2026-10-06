@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo: automatically refreshed data</title>
+<style>
+  body { margin: 0; font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; color: #14212c; background: #f4f6f5; line-height: 1.5; }
+  header { background: #14212c; color: #fff; padding: 1.5rem 1rem; }
+  header h1 { margin: 0 0 .25rem; font-size: 1.4rem; }
+  header p { margin: 0; color: #b9c7d2; font-size: .9rem; }
+  main { max-width: 900px; margin: 0 auto; padding: 1rem; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 0 0 1rem; }
+  .stat { background: #fff; border: 1px solid #d7dde1; border-radius: 4px; padding: .75rem; }
+  .stat b { display: block; font-size: 1.5rem; }
+  .stat span { font-size: .8125rem; color: #5b6874; }
+  .scroll { overflow-x: auto; background: #fff; border: 1px solid #d7dde1; border-radius: 4px; }
+  table { border-collapse: collapse; width: 100%; min-width: 520px; }
+  th, td { padding: .6rem .75rem; border-bottom: 1px solid #d7dde1; text-align: right; white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { background: #eef1f2; }
+  .note { font-size: .8125rem; color: #5b6874; margin-top: .75rem; }
+  .error { background: #fde8e8; border: 1px solid #e0a3a3; padding: .75rem; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Demo clinic availability</h1>
+  <p id="updated">Loading the latest data.</p>
+</header>
+<main>
+  <div class="stats" id="stats"></div>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>Clinic</th><th>Region</th><th>Physios</th><th>Online booking</th><th>Slots, next 7 days</th><th>Next available</th></tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="note" id="note"></p>
+</main>
+
+<script>
+  // The "?v=" part stops the browser showing an old saved copy of the data.
+  fetch("data/demo.json?v=" + Date.now())
+    .then(function (r) {
+      if (!r.ok) throw new Error("Data file not found (status " + r.status + ").");
+      return r.json();
+    })
+    .then(function (d) {
+      document.getElementById("updated").textContent = "Data last updated " + d.updated;
+      document.getElementById("note").textContent = d.note;
+      var total = d.rows.reduce(function (a, r) { return a + r.slots_next_7_days; }, 0);
+      var online = d.rows.filter(function (r) { return r.online_booking; }).length;
+      document.getElementById("stats").innerHTML =
+        '<div class="stat"><b>' + d.rows.length + '</b><span>Clinics</span></div>' +
+        '<div class="stat"><b>' + online + '</b><span>Offer online booking</span></div>' +
+        '<div class="stat"><b>' + total + '</b><span>Slots in the next 7 days</span></div>';
+      document.getElementById("rows").innerHTML = d.rows.map(function (r) {
+        return "<tr><td>" + r.clinic + "</td><td>" + r.region + "</td><td>" + r.physios + "</td><td>" +
+          (r.online_booking ? "Yes" : "No") + "</td><td>" + r.slots_next_7_days + "</td><td>" +
+          (r.next_available_days === null ? "None" : r.next_available_days === 0 ? "Today" : "In " + r.next_available_days + " days") + "</td></tr>";
+      }).join("");
+    })
+    .catch(function (e) {
+      document.getElementById("updated").textContent = "Could not load the data.";
+      document.querySelector("main").insertAdjacentHTML("afterbegin", '<p class="error">' + e.message +
+        " If you opened this file by double-clicking it, run it from a local web server or from GitHub Pages instead.</p>");
+    });
+</script>
+</body>
+</html>
