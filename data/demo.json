@@ -1,0 +1,70 @@
+{
+  "updated": "06 October 2026 at 14:02 UTC",
+  "note": "Dummy data for testing. Not real.",
+  "rows": [
+    {
+      "clinic": "Riverside Clinic",
+      "region": "North",
+      "physios": 3,
+      "online_booking": true,
+      "slots_next_7_days": 14,
+      "next_available_days": 4
+    },
+    {
+      "clinic": "Hillcrest Centre",
+      "region": "North",
+      "physios": 7,
+      "online_booking": true,
+      "slots_next_7_days": 29,
+      "next_available_days": 4
+    },
+    {
+      "clinic": "Harbour Health",
+      "region": "South",
+      "physios": 4,
+      "online_booking": true,
+      "slots_next_7_days": 6,
+      "next_available_days": 0
+    },
+    {
+      "clinic": "Parkview Clinic",
+      "region": "South",
+      "physios": 2,
+      "online_booking": true,
+      "slots_next_7_days": 39,
+      "next_available_days": 2
+    },
+    {
+      "clinic": "Station Road Practice",
+      "region": "Midlands",
+      "physios": 5,
+      "online_booking": true,
+      "slots_next_7_days": 21,
+      "next_available_days": 1
+    },
+    {
+      "clinic": "Millfield Centre",
+      "region": "Midlands",
+      "physios": 7,
+      "online_booking": true,
+      "slots_next_7_days": 5,
+      "next_available_days": 4
+    },
+    {
+      "clinic": "Greenway Clinic",
+      "region": "East",
+      "physios": 8,
+      "online_booking": true,
+      "slots_next_7_days": 37,
+      "next_available_days": 2
+    },
+    {
+      "clinic": "Bridgewater Practice",
+      "region": "East",
+      "physios": 2,
+      "online_booking": true,
+      "slots_next_7_days": 24,
+      "next_available_days": 5
+    }
+  ]
+}
