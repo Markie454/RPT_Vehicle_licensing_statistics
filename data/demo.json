@@ -1,69 +1,69 @@
 {
-  "updated": "06 October 2026 at 14:02 UTC",
+  "updated": "12 October 2026 at 06:07 UTC",
   "note": "Dummy data for testing. Not real.",
   "rows": [
     {
       "clinic": "Riverside Clinic",
       "region": "North",
-      "physios": 3,
+      "physios": 4,
       "online_booking": true,
-      "slots_next_7_days": 14,
-      "next_available_days": 4
+      "slots_next_7_days": 11,
+      "next_available_days": 2
     },
     {
       "clinic": "Hillcrest Centre",
       "region": "North",
-      "physios": 7,
+      "physios": 6,
       "online_booking": true,
-      "slots_next_7_days": 29,
-      "next_available_days": 4
+      "slots_next_7_days": 39,
+      "next_available_days": 0
     },
     {
       "clinic": "Harbour Health",
       "region": "South",
-      "physios": 4,
-      "online_booking": true,
-      "slots_next_7_days": 6,
-      "next_available_days": 0
+      "physios": 2,
+      "online_booking": false,
+      "slots_next_7_days": 0,
+      "next_available_days": null
     },
     {
       "clinic": "Parkview Clinic",
       "region": "South",
-      "physios": 2,
+      "physios": 8,
       "online_booking": true,
-      "slots_next_7_days": 39,
+      "slots_next_7_days": 4,
       "next_available_days": 2
     },
     {
       "clinic": "Station Road Practice",
       "region": "Midlands",
-      "physios": 5,
+      "physios": 2,
       "online_booking": true,
-      "slots_next_7_days": 21,
-      "next_available_days": 1
+      "slots_next_7_days": 6,
+      "next_available_days": 8
     },
     {
       "clinic": "Millfield Centre",
       "region": "Midlands",
-      "physios": 7,
+      "physios": 5,
       "online_booking": true,
-      "slots_next_7_days": 5,
-      "next_available_days": 4
+      "slots_next_7_days": 7,
+      "next_available_days": 6
     },
     {
       "clinic": "Greenway Clinic",
       "region": "East",
-      "physios": 8,
+      "physios": 3,
       "online_booking": true,
-      "slots_next_7_days": 37,
-      "next_available_days": 2
+      "slots_next_7_days": 30,
+      "next_available_days": 3
     },
     {
       "clinic": "Bridgewater Practice",
       "region": "East",
-      "physios": 2,
+      "physios": 6,
       "online_booking": true,
-      "slots_next_7_days": 24,
+      "slots_next_7_days": 32,
       "next_available_days": 5
     }
   ]
